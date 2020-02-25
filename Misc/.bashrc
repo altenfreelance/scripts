@@ -11,3 +11,33 @@ alias bashrc="nano /c/Users/a0a/.bashrc"
 alias repos="cd /c/repositories && ls"
 alias ll="ls -alF"
 alias files="explorer.exe"
+
+mkRC(){
+	echo "import React, { Component } from 'react';
+
+class $1 extends Component {
+    state = {  }
+    render() { 
+        return ( <p>$1 Works!</p> );
+    }
+}
+ 
+export default $1;" > $1.jsx;
+
+echo "import React from 'react';
+import ReactDOM from 'react-dom';
+import $1 from './$1';
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<$1 />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
+">$1.test.js;
+
+}
+
+alias app_server="cd /var/www/html && ls"
+alias tomcat_start="/opt/apache-tomcat/bin/startup.sh"
+alias tomcat_stop="/opt/apache-tomcat/bin/shutdown.sh"
+alias tomcat_restart="/opt/apache-tomcat/bin/shutdown.sh && /opt/apache-tomcat/bin/startup.sh"
