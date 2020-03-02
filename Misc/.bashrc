@@ -21,6 +21,10 @@ alias tomcat_restart="/opt/apache-tomcat/bin/shutdown.sh && /opt/apache-tomcat/b
 
 
 #### Functions ####
+gitroot () {
+  cd "$(git rev-parse --show-toplevel)";
+}
+
 reactClass () {
 	echo "import React from 'react'
 
