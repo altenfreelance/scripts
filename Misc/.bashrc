@@ -48,15 +48,16 @@ export default function Sort2() {
 }
 
 reactTest () {
-echo "import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+echo "import React from 'react';
 import $1 from './$1';
 
-it('renders without crashing', () => {
-const div = document.createElement('div');
+import {render, cleanup} from '@testing-library/react';
+import '@testing-library/jest-dom';
 
-ReactDOM.render(<$1 />, div);
+afterEach(cleanup);
 
-ReactDOM.unmountComponentAtNode(div);
+it('renders (matches snapshot) ', () => {
+    const {asFragment} = render(<$1 />);
+    expect(asFragment()).toMatchSnapshot();
 });" > $1.test.js;}
 
